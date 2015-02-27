@@ -32,7 +32,7 @@ public class Enemy extends MoveableEntity {
 			float deltaX = this.getX() - Play.getPlayer().getX();
 			float deltaY = this.getY() - Play.getPlayer().getY();
 			//If within aggro range
-			if(Math.abs(deltaX) < aggroRange || Math.abs(deltaY) < aggroRange) {
+			if(Math.abs(deltaX) < aggroRange && Math.abs(deltaY) < aggroRange) {
 				if(deltaX < aggroRange && deltaX > 0) { //player is <n left
 					tryDirection('w');
 					if(deltaX < attackRange){
