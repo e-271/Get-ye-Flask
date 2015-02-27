@@ -32,7 +32,7 @@ public class Enemy extends MoveableEntity {
 			float deltaX = this.getX() - Play.getPlayer().getX();
 			float deltaY = this.getY() - Play.getPlayer().getY();
 			//If within aggro range
-			if(Math.abs(deltaX) > aggroRange && Math.abs(deltaY) > aggroRange) {
+			if(Math.abs(deltaX) < aggroRange || Math.abs(deltaY) < aggroRange) {
 				if(deltaX < aggroRange && deltaX > 0) { //player is <n left
 					tryDirection('w');
 					if(deltaX < attackRange){
@@ -110,7 +110,6 @@ public class Enemy extends MoveableEntity {
 			//Parametric eqn for a circle: r*cos(vt / r) , r*sin(vt / r) 
 			//Switching cos to y and sin to x. It should work on the same principle as an x-axis transformation but simpler to deal with.
 			//EFFECTIVE RANGE OF ATTACK: max value of attackPos.x or attackPos.y. Try to make it hit radius.
-			//FIX THIS SHIT MAKE IT WORK
 			attackPos.x = (float)(r * Math.sin(v * (deltaTime(t1)) / 1000) + initialPos.x); 
 			attackPos.y = (float)(r * Math.cos(v * (deltaTime(t1)) / 1000) + initialPos.y);
 			
