@@ -1,3 +1,4 @@
+//To add interactable objects: Add a collision layer to the test seqence. 
 package getyeflask.game.entities;
 
 import com.badlogic.gdx.Gdx;
