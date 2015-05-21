@@ -52,15 +52,6 @@ public class MoveableEntity extends Sprite {
 	
 	public void update(float delta){
 		
-		//applies gravity
-		//GRAVvelocity.y -= gravity * delta;
-		
-		/*GRAVclamp velocity
-		if(velocity.y > speed)
-			velocity.y = speed;
-		else if(velocity.y < -speed)
-			velocity.y = -speed;*/
-		
 		float oldX = getX(); boolean xCollision = false;
 		float oldY = getY(); boolean yCollision = false;
 		boolean breakIt = false;
@@ -127,6 +118,7 @@ public class MoveableEntity extends Sprite {
 		for(float step = 0; step < getHeight()/ 4; step += collisionLayer.getTileHeight() / 2){
 			if(isCellBlocked(getX() + getWidth(), getY()  + step))
 				return true;
+			//!!! Add another method call here to each direction for isCellInteractible
 		}
 		return false;
 	}
@@ -153,6 +145,8 @@ public class MoveableEntity extends Sprite {
 		}
 		return false;
 	}
+	
+	//!!! Add a similar function here, isCellInteractible. Returns null or InteractibleObject. Or is void and triggers the event if tile is interactible.
 	
 	private boolean isCellBlocked(float x, float y){
 		Cell cell = collisionLayer.getCell((int)(x / collisionLayer.getTileWidth()), (int)(y / collisionLayer.getTileHeight()));
