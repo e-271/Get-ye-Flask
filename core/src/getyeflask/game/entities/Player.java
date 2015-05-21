@@ -1,3 +1,5 @@
+//Consider implementing InputProcessor as another class in this file.
+
 package getyeflask.game.entities;
 
 import com.badlogic.gdx.Input.Keys;
